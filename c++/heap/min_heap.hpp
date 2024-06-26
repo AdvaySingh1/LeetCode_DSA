@@ -4,10 +4,39 @@
 #include <string>
 using namespace std;
 
-//RME
-int min_heap();
+class Heap
+{
+public:
+    // ctor
+    Heap();
 
-//RME
-string doSomething();
+    // size
+    int getSize();
+
+    // return min element
+    int extract_min();
+
+    // remove min element
+    void del_min();
+
+    // insert element
+    void insert(int num);
+
+    // heapify down
+    void heapifyDown();
+
+    // heapify up
+    void heapifyUp();
+
+    // helper array for swapping
+    void swap(int a, int b);
+
+    ~Heap();
+
+private:
+    int size;
+    int capacity;
+    int *arr;
+};
 
 #endif

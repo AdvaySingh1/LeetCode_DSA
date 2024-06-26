@@ -38,6 +38,16 @@ stack.exe: stack/stack.cpp stack/stack.hpp
 queue.exe: queue/queue.cpp queue/queue.hpp
 	$(V)$(CXX) $(CXXFLAGS) $< -o $@ -include queue/queue.hpp
 
+# heap
+heap.exe: heap/min_heap.cpp heap/min_heap.hpp
+	$(V)$(CXX) $(CXXFLAGS) $< -o $@ -include heap/min_heap.hpp
+
+# tree
+
+
+# graph
+
+
 
 # rule for compilation
 %.o: %.cpp
