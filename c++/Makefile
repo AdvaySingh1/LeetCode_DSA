@@ -29,8 +29,14 @@ all: main.exe
 main.exe: $(OBJECTS)
 	$(V)$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
 
+
+# stack
 stack.exe: stack/stack.cpp stack/stack.hpp
 	$(V)$(CXX) $(CXXFLAGS) $< -o $@ -include stack/stack.hpp
+
+# queue
+queue.exe: queue/queue.cpp queue/queue.hpp
+	$(V)$(CXX) $(CXXFLAGS) $< -o $@ -include queue/queue.hpp
 
 
 # rule for compilation
