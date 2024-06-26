@@ -14,7 +14,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17 -pedantic
 
 # set the sources
-SOURCES = main.cpp heap/min_heap.cpp
+SOURCES = main.cpp heap/min_heap.cpp stack/stack.cpp
 
 # compile into object files
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -28,6 +28,9 @@ all: main.exe
 # Link files
 main.exe: $(OBJECTS)
 	$(V)$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+
+stack.exe: stack/stack.cpp stack/stack.hpp
+	$(V)$(CXX) $(CXXFLAGS) $< -o $@ -include stack/stack.hpp
 
 
 # rule for compilation
