@@ -14,7 +14,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17 -pedantic
 
 # set the sources
-SOURCES = main.cpp min_heap.cpp
+SOURCES = main.cpp heap/min_heap.cpp
 
 # compile into object files
 OBJECTS = $(SOURCES:.cpp=.o)
