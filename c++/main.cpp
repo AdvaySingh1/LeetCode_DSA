@@ -1,5 +1,6 @@
 #include <iostream>
 #include "./heap/min_heap.hpp"
+#include "./stack/stack.hpp"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ const void readUsage(int argc, char** argv) {
     if(argc != 4){
         throw UsageError();
     }
-    string dsas[5] = {"min_heap"};
+    string dsas[5] = {"stack", "queue", "min_heap"};
     string commands[5] = {"add", "remove"};
 
     bool isValidDsa = false;
@@ -39,10 +40,21 @@ const void readUsage(int argc, char** argv) {
 int main(int argc, char** argv){
     cout.precision(3);
     try{
+        // assure right arguments
         readUsage(argc, argv);
+
+        // stack
+        if (argv[1] == "stack"){
+            Stack s;
+            
+        }
+
+
+
     } catch (const UsageError &e) {
         cout << e.what();
     }
+
     
     return 1;
 }
