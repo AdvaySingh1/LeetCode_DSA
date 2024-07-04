@@ -1,5 +1,6 @@
 #include <vector>
 using namespace std;
+
 class MinStack
 {
 public:

@@ -44,6 +44,47 @@ class LinkedList:
         if self.tail.prev:
             self.tail.prev.next = self.tail
 
+    def deleteAtIndex(self, index):
+        """
+        :type index: int
+        :rtype: None
+        """
+
+        curr = self.head.next
+        i = 0
+        while i < index and curr.next:
+            curr = curr.next
+            i += 1
+        
+        if curr is not self.tail:
+            curr.next.prev = curr.prev
+            curr.prev.next = curr.next
+
+    def addAtIndex(self, index, val):
+        """
+        :type index: int
+        :type val: int
+        :rtype: None
+        """
+        curr = self.head.next
+        i = 0
+        while i < index and curr.next:
+            curr = curr.next
+            i += 1
+        curr = curr.prev
+        
+        if curr == self.tail and i == index:
+            self.addAtTail(val)
+        elif (i == index):
+            new_node = ListNode(val)
+            new_node.prev = curr
+            new_node.next = curr.next
+
+            curr.next.prev = new_node
+            curr.next = new_node
+
+        # print(f"{self.get(0)}, {self.get(1)}, {self.get(2)}")
+
 
     def print(self):
         curr = self.head.next

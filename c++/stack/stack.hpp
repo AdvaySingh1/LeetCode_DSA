@@ -8,6 +8,7 @@ struct Node {
 
 // implementing a Stack in the heap memery (RAII: resourse aqusition is initialization)
 // underlaying struct: singally linked list
+// Note a common implementation of a stack is using a dynamic array such as a vector
 class Stack {
     public:
         // ctor
