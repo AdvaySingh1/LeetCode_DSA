@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-#include "HashTable.h"
+#include "hashing/HashTable.h"
 
 
 // A hash function structure is a functor, overloading operator()().
