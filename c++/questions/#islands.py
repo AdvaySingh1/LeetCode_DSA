@@ -123,4 +123,4 @@ class Solution:
                     if (r, c) not in visited and grid[r][c] == 1:
                         maxArea = max(maxArea, bfs(r, c))
         
-        return maxArea
+            return maxArea
