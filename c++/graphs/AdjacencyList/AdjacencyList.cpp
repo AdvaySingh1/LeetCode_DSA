@@ -98,3 +98,65 @@ private:
         return false;
     }
 };
+
+/**
+ * The follwing is an implementation of an adjcency list copy with C++ where the map is defined my a node in the graph.
+ * The node has pointers to other nodes which are stored within a vector.
+ * This is different from the implmentation above where all of the nodes are prepresented within the map with a set of their adjcent nodes.
+ */
+
+// Definition for a Node.
+class Node
+{
+public:
+    int val;
+    vector<Node *> neighbors;
+    Node()
+    {
+        val = 0;
+        neighbors = vector<Node *>();
+    }
+    Node(int _val)
+    {
+        val = _val;
+        neighbors = vector<Node *>();
+    }
+    Node(int _val, vector<Node *> _neighbors)
+    {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+
+class Solution
+{
+public:
+    Node *cloneGraph(Node *node)
+    {
+        map<Node *, Node *> oldToNew;
+
+        return dfs(oldToNew, node);
+    }
+
+private:
+    Node *dfs(map<Node *, Node *> &oldToNew, Node *old)
+    {
+        if (old == nullptr)
+        {
+            return nullptr;
+        }
+        if (oldToNew.count(old))
+        {
+            return oldToNew[old];
+        }
+        Node *new_node = new Node(old->val);
+        oldToNew[old] = new_node;
+
+        for (Node *n : old->neighbors)
+        {
+            new_node->neighbors.push_back(dfs(oldToNew, n));
+        }
+
+        return oldToNew[old];
+    }
+};
