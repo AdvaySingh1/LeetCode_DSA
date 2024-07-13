@@ -9,7 +9,7 @@ class ListNode:
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
 
-        # O(1) space solution
+        # O(1) space solution O(n) time
 
         fast, slow, prev = head, head, None
         while fast and fast.next:
