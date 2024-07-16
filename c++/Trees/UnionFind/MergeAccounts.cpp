@@ -2,6 +2,12 @@
 #include <vector>
 #include <string>
 
+/**
+ * Time complexity for this approach: O(m * n log(m)) where m is the avg size of the email list.
+ * Time complexity for the brute force approach: O(n^2 * m^2).
+ * Space needs to be O(n * m) for the response
+ */
+
 using namespace std;
 
 class UnionFind
