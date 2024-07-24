@@ -2,7 +2,6 @@
 from typing import DefaultDict
 from typing import List
 
-
 class UnionFind:
     def __init__(self, n: int):
         self.par = [i for i in range(n)]

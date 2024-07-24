@@ -2,6 +2,7 @@
 #include <map>
 using namespace std;
 /**
+ * Used for determeining wether or not componenets are connected.
  * Union find algorithm with path compression in the find algorithms
  * What happens to the rank? Time complexity if O(ElogV) but reduces to O(1)?
  * More on this here: https://www.geeksforgeeks.org/union-by-rank-and-path-compression-in-union-find-algorithm/
