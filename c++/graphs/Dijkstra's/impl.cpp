@@ -29,8 +29,8 @@ using namespace std;
         Time complexity for creating res:
             The DFS algorithm can have us visit each edge at most one time. Hence, a similar O(E) and Ω(1) logic applies.
             However, we do an additional step each of the time, the logarithmic addition or delition from the heap.
-            Then we see a O(log ^ (E)). However, we can re-write this as O(log ^ (V^2)) = O(2 log ^ (V)).
-            Therefore, the formal time complexity if O(log^(V)).
+            Then we see a O(E * log(E)). However, we can re-write this as O(log ^ (V^2)) = O(E * 2 log (V)).
+            Therefore, the formal time complexity if O(E * log(V)).
 
     The space complexity of O(E) or O(V^2) since we have to store each of the edges in the adj_m which is greater than O(V)
     which is needed for the res.
