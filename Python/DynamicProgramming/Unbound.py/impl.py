@@ -1,7 +1,34 @@
 from typing import List
 
+""" The frist two solutions are the new means while the rest alter the bound knapsack question. """
+""" Implementations are in order of most to least effecient. """
+
 class Solution:
     def maximumProfit(self, profit: List[int], weight: List[int], capacity: int) -> int:
+
+        # tabular O(m) space and O(n * m) time solution
+        cache = {}
+        for m in range(capacity + 1):
+            cache[m] = 0
+            for n in range(len(profit)):
+                if m - weight[n] >= 0:
+                    cache[m] = max(cache[m], profit[n] + cache[m - weight[n]])
+        return cache[capacity]
+
+        # memoization solution O(m) space O(n * m) time
+        cache = {} # m for capacity
+        def memoization(cap):
+            if cap == 0:
+                return 0
+            if cap in cache:
+                return cache[cap]
+            cache[cap] = 0
+            for i in range(len(profit)):
+                if (cap - weight[i] >= 0):
+                    cache[cap] = max(cache[cap], profit[i] + memoization(cap - weight[i]))
+            return cache[cap]
+        return memoization(capacity)
+                
 
         # tabular O(n * m) time and O(m) space solution. Same as Bound Knapsack
         cache = [0] * (capacity + 1)

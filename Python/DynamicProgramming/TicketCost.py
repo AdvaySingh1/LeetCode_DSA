@@ -1,5 +1,7 @@
 from typing import List
 
+""" Similar to un bounded knapsack with a slight nuance. """
+
 class Solution:
     def mincostTickets(self, days: List[int], costs: List[int]) -> int:
         # tabular (bottom up)
