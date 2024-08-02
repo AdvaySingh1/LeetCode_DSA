@@ -40,3 +40,5 @@ Type Two: Max calue: (Knapsack, 1s and 0s).
         # if cache[-1] == amount:
         #     return 1
         # return 0
+
+- You can only use trees with all n options when the order doen't matter. When you are restricted by the order, use only 2^n brute force optimization.
