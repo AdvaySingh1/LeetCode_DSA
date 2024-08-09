@@ -1,4 +1,8 @@
 class Solution:
+
+    """ Great dynamic programming example with different base case (in range).
+        See picture from 08/05/2024.
+    """
     def longestPalindromeSubseq(self, s: str) -> int:
 
         #true dynamic programming solution

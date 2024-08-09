@@ -1,6 +1,7 @@
 class Solution:
     def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
         # optimized solution
+        # O(m) space and O(n * m) time where m is the shorter of the two
         if len(str2) < len(str1):
             str1, str2 = str2, str1
 
