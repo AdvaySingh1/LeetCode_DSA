@@ -1,0 +1,41 @@
+from typing import Optional
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+
+        def _isValidBST(left, curr, right) -> bool:
+            if not curr:
+                return True
+            if left < curr.val < right:
+                return (_isValidBST(left, curr.left, curr.val)
+                and _isValidBST(curr.val, curr.right, right))
+            return False
+        
+        return _isValidBST(-1001, root, 1001)
+
+
+        # in order traversal
+        curr = root
+        curr_val = -1001
+        stack = []
+       # using iteration do in order traversal
+        while curr or stack:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+
+            if not curr:
+                curr = stack.pop()
+                if curr.val <= curr_val:
+                    return False
+                curr_val = curr.val
+                curr = curr.right
+        return True
+        
