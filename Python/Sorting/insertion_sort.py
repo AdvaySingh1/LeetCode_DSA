@@ -1,8 +1,9 @@
+from typing import List
 # Definition for a pair.
-# class Pair:
-#     def __init__(self, key: int, value: str):
-#         self.key = key
-#         self.value = value
+class Pair:
+    def __init__(self, key: int, value: str):
+        self.key = key
+        self.value = value
 class Solution:
     def insertionSort(self, pairs: List[Pair]) -> List[List[Pair]]:
         res = []
@@ -20,7 +21,7 @@ class Solution:
         return res
     
 
-  """
-  This is a stable sorting algorithms since the values stay in order
-  This is beg theta n and O(n^2)
-  """
+"""
+This is a stable sorting algorithms since the values stay in order
+This is beg theta n and O(n^2)
+"""

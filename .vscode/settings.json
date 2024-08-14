@@ -26,5 +26,18 @@
     "vector": "cpp",
     "iostream": "cpp",
     "ratio": "cpp"
-  }
+  },
+
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+
+  // clang-format settings
+  "C_Cpp.clang_format_fallbackStyle": "none",
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0 }",
+
+  // Ensure .clang-format file is used if present
+  "C_Cpp.clang_format_style": "file"
 }

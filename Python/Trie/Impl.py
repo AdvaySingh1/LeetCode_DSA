@@ -28,6 +28,14 @@ class PrefixTree:
 
 
     def search(self, word: str) -> bool:
+        """Determines if a word is in the Dictionary
+
+        Args:
+            word (str): The Word To search
+
+        Returns:
+            bool: True if the word is in the Dictionary
+        """
         curr = self.root
 
         for c in word:

@@ -5,7 +5,8 @@ using namespace std;
 
 /**
  * Promprt: Merge N sorted linked lists
- * Time complexity is O(nLogn) because the list is diveded in half and merging two sorted lists/arrays is O(n)
+ * Time complexity is O(mnLogn) because the list is diveded in half and merging two sorted lists/arrays is O(m)
+ *
  */
 
 //   Definition for singly-linked list.
@@ -21,57 +22,47 @@ struct ListNode
 class Solution
 {
 public:
+    /**
+     * @brief Returns Something
+     * @param lists A list of Node points
+     * @return ListNode* Another List
+     */
     ListNode *mergeKLists(vector<ListNode *> &lists)
     {
-        if (lists.empty())
-            return nullptr;
-        while (lists.size() > 1)
+        if (lists.size() == 0)
+            return {};
+        if (lists.size() == 1)
+            return lists[0];
+        vector<ListNode *> res;
+        for (int i = 0; i < lists.size(); i += 2)
         {
-            vector<ListNode *> mergedList;
-
-            for (size_t i = 0; i < lists.size(); i += 2)
-            {
-                ListNode *l1 = lists[i];
-                ListNode *l2;
-                if (i + 1 < lists.size())
-                {
-                    l2 = lists[i + 1];
-                }
-                else
-                {
-                    l2 = nullptr;
-                }
-                mergedList.push_back(mergeTwoLists(l1, l2));
-            }
-            lists = move(mergedList); // copies the mergedList without
-            // the copy ctor (shallow copy since merged list not needed)
+            if (i + 1 < lists.size())
+                res.push_back(mergeNodes(lists[i], lists[i + 1]));
+            else
+                res.push_back(lists[i]);
         }
-        return lists.front(); // lists [0]
+        return mergeKLists(res);
     }
-    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
-    {
-        ListNode dummy; // unlike python, create a listNode in the heap
-        ListNode *tail = &dummy;
 
-        // uslaly implemented with dynamic arrays
-        while (l1 && l2)
+    ListNode *mergeNodes(ListNode *a, ListNode *b)
+    {
+        ListNode *res = new ListNode;
+        ListNode *curr = res;
+        while (a != nullptr && b != nullptr)
         {
-            if (l1->val <= l2->val)
+            if (a->val <= b->val)
             {
-                tail->next = l1;
-                l1 = l1->next;
+                curr->next = a;
+                a = a->next;
             }
             else
             {
-                tail->next = l2;
-                l2 = l2->next;
+                curr->next = b;
+                b = b->next;
             }
-            tail = tail->next;
+            curr = curr->next;
         }
-
-        tail->next = l1 ? l1 : l2;
-        // clear up the memory leaks here
-
-        return dummy.next;
+        curr->next = (a != nullptr) ? a : b;
+        return res->next;
     }
 };
