@@ -5,6 +5,13 @@ using namespace std;
 class Solution
 {
 public:
+/**
+ * @brief Binary O(lon(n)) Search
+ * 
+ * @param nums (vector<int>)
+ * @param target 
+ * @return int 
+ */
     int search(vector<int> &nums, int target)
     {
         int l = 0;
