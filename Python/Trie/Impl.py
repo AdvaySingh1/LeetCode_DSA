@@ -17,6 +17,11 @@ class PrefixTree:
         self.root = TreeNode()
 
     def insert(self, word: str) -> None:
+        """_summary_
+
+        Args:
+            word (str): _description_
+        """
         curr = self.root
 
         for c in word:
