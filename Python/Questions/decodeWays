@@ -1,0 +1,33 @@
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        # O(n) time and space solution
+        # Brute force is O(2^n) time and O(n) space
+        # tabular solution
+        n = len(s)
+        dp = [0] * (n + 1)
+        dp[-1] = 1
+        for i in range(n - 1, -1, -1):
+            if s[i] != '0':
+                dp[i] = dp[i + 1]
+                if i + 1 < n and (s[i] == "1" or (s[i] == "2" and s[i + 1] in "0123456")):
+                    dp[i] += dp[i + 2]
+
+        return dp[0]
+
+
+
+        validSecondChars = {str(i) for i in range(7)}
+
+        cache = {len(s): 1}
+        def dfs(i):
+            if i in cache:
+                return cache[i]
+            if s[i] == '0':
+                return 0
+            cache[i] = dfs(i + 1)
+
+            if i + 1 < len(s) and (s[i] == "1" or (s[i] == "2" and s[i + 1] in validSecondChars)):
+                cache[i] += dfs(i + 2)
+            return cache[i]
+        
+        return dfs(0)
