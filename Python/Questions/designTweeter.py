@@ -24,7 +24,7 @@ class Twitter:
             for post in self.posts[followee]:
                 heap.append(post)
             
-        # time complexity
+        # time complexity O(n)
         heapq.heapify(heap)
 
         for i in range(10):
